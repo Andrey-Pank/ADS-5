@@ -3,6 +3,22 @@
 #include <map>
 #include "tstack.h"
 
+int priory(char sym_oper) {
+    if ('(' == sym_oper) {
+        return 0;
+    } else if (')' == sym_oper) {
+        return 1;
+    } else if ('+' == sym_oper || '-' == sym_oper) {
+        return 2;
+    } else if ('*' == sym_oper || '/' == sym_oper) {
+        return 3;
+    } else if (' ' == sym_oper) {
+        return 4;
+    } else {
+        return 5;
+    }
+}
+
 std::string infx2pstfx(std::string inf) {
   TStack <char, 100> stack;
     std::string out;
