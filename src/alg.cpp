@@ -39,7 +39,7 @@ std::string infx2pstfx(std::string inf) {
             } else if (stack.isEmpty()) {
                 stack.push(inf[i]);
             } else if (1 == priory(inf[i])) {
-                while (0 != priory(stack.get()) {
+                while (0 != priory(stack.get())) {
                     out += stack.get();
                     out += ' ';
                     stack.pop();
