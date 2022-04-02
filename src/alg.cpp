@@ -39,7 +39,7 @@ std::string infx2pstfx(std::string inf) {
             } else if (stack.isEmpty()) {
                 stack.push(inf[i]);
             } else if (1 == priory(inf[i])) {
-                while (0 != priory(stack.get)) {
+                while (0 != priory(stack.get()) {
                     out += stack.get();
                     out += ' ';
                     stack.pop();
@@ -49,7 +49,7 @@ std::string infx2pstfx(std::string inf) {
                 while (!stack.isEmpty() && 1 < priory(stack.get())) {
                     out += stack.get();
                     out += ' ';
-                    stack.pop;
+                    stack.pop();
                 }
                 stack.push(inf[i]);
             }
@@ -78,7 +78,7 @@ int eval(std::string pref) {
         if (check != "") {
             istack.push(std::stoi(check));
         }
-        if (2 == priory(pref[i]) || 3 == priory(pref[i]) ) {
+        if (2 == priory(pref[i]) || 3 == priory(pref[i])) {
             int a = istack.get();
             istack.pop();
             int b = istack.get();
