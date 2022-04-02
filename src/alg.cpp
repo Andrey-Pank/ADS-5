@@ -49,6 +49,39 @@ std::string infx2pstfx(std::string inf) {
 }
 
 int eval(std::string pref) {
-  // добавьте код
-  return 0;
+  TStack<int, 100> istack;
+    std::string out;
+    int res = 0;
+    int i = 0;
+    for (; i < pref.length(); i++) {
+        std::string check = "";
+        while (5 == priory(pref[i])) {
+            check += pref[i];
+            i += 1;
+        }
+        if (check != "") {
+            istack.push(std::stoi(check));
+        }
+        if (2 == priory(pref[i]) || 3 == priory(pref[i]) ) {
+            int a = istack.get();
+            istack.pop();
+            int b = istack.get();
+            istack.pop();
+            if ('-' == pref[i]) {
+                res = b - a;
+                istack.push(res);
+            } else if ('+' == pref[i]) {
+                res = a + b;
+                istack.push(res);
+            } else if ('*' == pref[i]) {
+                res = a * b;
+                istack.push(res);
+            } else if ('/' == pref[i]) {
+                res = b / a;
+                istack.push(res);
+            }
+        }
+    }
+    res = istack.get();
+    return res;
 }
